@@ -309,21 +309,6 @@ class Ui_MainWindow_Wart(object):
         self.pushButton_4 = QPushButton(self.frame_8)
         self.pushButton_4.setObjectName(u"pushButton_4")
         self.pushButton_4.setLayoutDirection(Qt.LeftToRight)
-        icon12 = QIcon()
-        icon12.addFile(u":/icon/icons/minus.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_4.setIcon(icon12)
-        self.pushButton_4.setIconSize(QSize(24, 24))
-
-        self.horizontalLayout_4.addWidget(self.pushButton_4)
-
-        self.pushButton_2 = QPushButton(self.frame_8)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-        icon13 = QIcon()
-        icon13.addFile(u":/icon/icons/x.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_2.setIcon(icon13)
-        self.pushButton_2.setIconSize(QSize(24, 24))
-
-        self.horizontalLayout_4.addWidget(self.pushButton_2)
 
 
         self.horizontalLayout_5.addWidget(self.frame_8, 0, Qt.AlignRight)
@@ -744,7 +729,6 @@ class Ui_MainWindow_Wart(object):
         self.telegram_btn.setText("")
         self.git_btn.setText("")
         self.pushButton_4.setText("")
-        self.pushButton_2.setText("")
         self.label_12.setText(QCoreApplication.translate("MainWindow", u"Version 1.0", None))
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"In this version of dapp were added address,send,address book,transactions,miners tabs.Give feedback about use experiense.", None))
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"Thursday, 15 February 2024", None))

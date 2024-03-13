@@ -78,25 +78,6 @@ class Ui_Dialog_Priv(object):
         self.horizontalLayout_9 = QHBoxLayout(self.frame_11)
         self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
         self.horizontalLayout_9.setContentsMargins(0, 0, 0, 0)
-        self.hide_btn_2 = QPushButton(self.frame_11)
-        self.hide_btn_2.setObjectName(u"hide_btn_2")
-        self.hide_btn_2.setStyleSheet(u"border:none;")
-        icon = QIcon()
-        icon.addFile(u":/icon/icons/minus.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.hide_btn_2.setIcon(icon)
-        self.hide_btn_2.setIconSize(QSize(24, 24))
-
-        self.horizontalLayout_9.addWidget(self.hide_btn_2)
-
-        self.close_btn_2 = QPushButton(self.frame_11)
-        self.close_btn_2.setObjectName(u"close_btn_2")
-        self.close_btn_2.setStyleSheet(u"border:none;")
-        icon1 = QIcon()
-        icon1.addFile(u":/icon/icons/x.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.close_btn_2.setIcon(icon1)
-        self.close_btn_2.setIconSize(QSize(24, 24))
-
-        self.horizontalLayout_9.addWidget(self.close_btn_2)
 
 
         self.horizontalLayout_7.addWidget(self.frame_11, 0, Qt.AlignRight)
@@ -149,9 +130,7 @@ class Ui_Dialog_Priv(object):
     # setupUi
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
-        self.hide_btn_2.setText("")
-        self.close_btn_2.setText("")
+        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Warthog Network: Private Key", None))
         self.label_2.setText(QCoreApplication.translate("Dialog", u"Enter private key:", None))
         self.ok_btn.setText(QCoreApplication.translate("Dialog", u"OK", None))
     # retranslateUi

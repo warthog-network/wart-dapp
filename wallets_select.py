@@ -144,25 +144,6 @@ class Ui_WalletsWindow(object):
         self.horizontalLayout_4 = QHBoxLayout(self.frame_8)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
-        self.hide_btn = QPushButton(self.frame_8)
-        self.hide_btn.setObjectName(u"hide_btn")
-        self.hide_btn.setStyleSheet(u"border:none;")
-        icon1 = QIcon()
-        icon1.addFile(u":/icon/icons/minus.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.hide_btn.setIcon(icon1)
-        self.hide_btn.setIconSize(QSize(24, 24))
-
-        self.horizontalLayout_4.addWidget(self.hide_btn)
-
-        self.close_btn = QPushButton(self.frame_8)
-        self.close_btn.setObjectName(u"close_btn")
-        self.close_btn.setStyleSheet(u"border:none;")
-        icon2 = QIcon()
-        icon2.addFile(u":/icon/icons/x.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.close_btn.setIcon(icon2)
-        self.close_btn.setIconSize(QSize(24, 24))
-
-        self.horizontalLayout_4.addWidget(self.close_btn)
 
 
         self.horizontalLayout_5.addWidget(self.frame_8, 0, Qt.AlignRight)
@@ -174,7 +155,7 @@ class Ui_WalletsWindow(object):
     # setupUi
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
+        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Warthog Network", None))
         self.label.setText("")
         self.new_wallet_button.setText(QCoreApplication.translate("Dialog", u"Create new wallet", None))
 
@@ -186,7 +167,5 @@ class Ui_WalletsWindow(object):
 
         self.private_key_button.setText(QCoreApplication.translate("Dialog", u"Add by Private Key", None))
         self.mnemonic_button.setText(QCoreApplication.translate("Dialog", u"Add by Mnemonic Phrase", None))
-        self.hide_btn.setText("")
-        self.close_btn.setText("")
     # retranslateUi
 
