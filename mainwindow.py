@@ -25,9 +25,9 @@ class Ui_MainWindow_Wart(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1000, 696)
-        MainWindow.setMinimumSize(QSize(1000, 600))
-        MainWindow.setMaximumSize(QSize(1000, 696))
+        MainWindow.resize(1300, 696)
+        MainWindow.setMinimumSize(QSize(1300, 600))
+        MainWindow.setMaximumSize(QSize(1300, 696))
         icon = QIcon()
         icon.addFile(u":/icon/icons/icon.ico", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -772,4 +772,3 @@ class Ui_MainWindow_Wart(object):
         self.label_7.setText(QCoreApplication.translate("MainWindow", u".", None))
         self.balance.setText("")
     # retranslateUi
-

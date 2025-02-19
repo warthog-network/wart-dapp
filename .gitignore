@@ -2,3 +2,7 @@ build/
 __pycache__
 wartwallet.db
 .idea/
+wart-py310/
+wart-py39/
+dist/
+.DS_Store
