@@ -3,6 +3,22 @@
 A Windows desktop wallet for Warthog mainnet and native WART payments on the
 DeFi testnet. Private keys and signing stay on this computer.
 
+[Screenshots](#screenshots) · [Build from source](#build-from-source-recommended) ·
+[Using the wallet](#using-the-wallet) · [Backup and recovery](#backup-and-recovery)
+
+## Screenshots
+
+Warthog Wallet 1.4.6 on Windows, connected to Mainnet. Click an image to view
+it at full size.
+
+| Connect to a network | Wallet selection | Receiving address |
+| --- | --- | --- |
+| [![Network and node connection screen](docs/screenshots/connect-network.png)](docs/screenshots/connect-network.png) | [![Wallet selection with create, import and backup controls](docs/screenshots/wallets.png)](docs/screenshots/wallets.png) | [![Address page with receiving address and QR code](docs/screenshots/receive-address.png)](docs/screenshots/receive-address.png) |
+| **Send WART** | **Address Book** | **Transactions** |
+| [![Send page with recipient, amount, node fee and payment review](docs/screenshots/send-wart.png)](docs/screenshots/send-wart.png) | [![Address Book with saved contacts](docs/screenshots/address-book.png)](docs/screenshots/address-book.png) | [![Transaction history with amounts, fees and confirmations](docs/screenshots/transactions.png)](docs/screenshots/transactions.png) |
+| **My mined blocks** | **Node settings** | **Preferences** |
+| [![Mining rewards with block heights, dates and confirmations](docs/screenshots/mined-blocks.png)](docs/screenshots/mined-blocks.png) | [![Settings for saved nodes, fees and connection health](docs/screenshots/settings-nodes.png)](docs/screenshots/settings-nodes.png) | [![Preferences for automatic fees, history, locking and refresh](docs/screenshots/settings-preferences.png)](docs/screenshots/settings-preferences.png) |
+
 ## Build from source (recommended)
 
 We recommend building the wallet yourself from source. The Windows build script
@@ -50,11 +66,14 @@ For the separate test storage profile:
 .\.venv\Scripts\python.exe launcher.py --test-profile
 ```
 
-## Connect to a node
+## Using the wallet
 
-The wallet-selection window uses compact controls and a resizable layout. Select
-a saved address to unlock it, or create/add a wallet using the buttons above the list.
-Connection, password and wallet recovery dialogs use the same fonts and controls.
+### 1. Connect to a network
+
+Start the wallet and choose **Mainnet** or **DeFi testnet** on the connection
+screen. Select a **Saved node** and click **Connect**, or use **Connect public
+node** to find an available node for that network. To use your own node, enter
+its base URL in **Node URL**; **Save profile** stores it under a name for next time.
 
 Connect to your node using a base URL such as `http://192.168.1.50:3000`.
 HTTP works for localhost, RFC1918 private IPv4, IPv6 unique-local and link-local
@@ -62,6 +81,70 @@ IPs. Public IPs and other hostnames require HTTPS. LAN HTTP is unencrypted.
 Save the URL as a named node profile. The status bar shows network, sync,
 height and last successful update. Sending requires a synced node whose reported
 network matches the selected network. Unknown networks cannot authorize payments.
+
+### 2. Create, add or unlock a wallet
+
+After connecting, the **Wallets** window lists saved addresses. Choose an option:
+
+- **Create new wallet**: set and confirm a wallet password of at least eight
+  characters. Write down the recovery phrase shown afterward and keep it private
+  and offline before clicking **Done**.
+- **Add by Mnemonic Phrase**: set a password for the imported wallet, then enter
+  its complete original recovery phrase and click **Add wallet**.
+- **Add by Private Key**: set a password, then enter the existing 64-character
+  hexadecimal private key and click **Add wallet**.
+- To open a saved wallet, click its address, enter its wallet password and click
+  **Unlock**.
+
+Use **Back up wallets** on this screen to save an encrypted backup. **Restore
+backup** opens a `.wartbackup` file; **Import existing database** imports an older
+wallet database. See [Backup and recovery](#backup-and-recovery) for password and
+restore details.
+
+### 3. Receive WART
+
+Open **Address** in the sidebar. Check the displayed network, then click **Copy**
+to copy the receiving address or let the sender scan the QR code. The QR contains
+only the address, so share the intended network with the sender as well. Verify
+the address before sharing it. Incoming payments appear under **Transactions**.
+
+### 4. Send WART
+
+1. Open **Send** and check the network label and available balance.
+2. Choose a saved **Contact**, or paste the recipient's 48-character Warthog
+   address into **Recipient**.
+3. Enter the **Amount (WART)**, using up to eight decimal places. **Send Max**
+   fills the available amount after the fee and pending-payment reservations.
+4. Keep **Use the connected node’s minimum fee** checked for automatic fees, or
+   clear it to enter a manual fee. Check the final fee and total shown below.
+5. Click **Review payment**. Verify the recipient, amount, fee, total debit,
+   network and node, then enter the wallet password and click **Confirm and send**.
+6. Open **Transactions** to follow the result. Node acceptance is pending;
+   confirmation requires inclusion in a block. If the result is uncertain,
+   select the payment and use **Check status** before deciding what to do next.
+
+### 5. Manage contacts and review history
+
+- **Address Book**: enter a name and address, then click **Add contact**. Saved
+  contacts become available in Send. Select a row to **Copy address** or
+  **Remove contact**; removal asks for confirmation.
+- **Transactions**: use **Refresh** for recent history and **Load older** for
+  earlier entries. Select a row to **Check status** on your node or **Copy ID**.
+  Dates are shown in UTC.
+- **My mined blocks**: view rewards paid to this address, with block heights,
+  dates and confirmations. Use **Refresh** or **Load older**, and select a block
+  to inspect its details or **Copy block hash**. The count and total cover only
+  loaded history.
+
+### 6. Lock the wallet and adjust settings
+
+Click **Lock wallet** to return to wallet selection. Inactivity also locks the
+wallet after five minutes by default. **Change node** locks it and returns to
+the connection screen so you can choose another node or network.
+
+Open **Settings** to manage nodes under **Nodes**, or change fees, automatic
+node selection, explorer history, auto-lock and refresh timing under
+**Preferences**. Click **Save preferences** to apply those changes.
 
 ## Settings, multiple nodes and fees
 
@@ -121,7 +204,7 @@ On the connection screen, choose **DeFi testnet**, select the included
 **Connect**. The public-node button checks both bundled public testnet nodes.
 You can save other testnet node URLs as named profiles.
 
-Create or unlock a wallet, then use **Receive** to copy its address or QR code.
+Create or unlock a wallet, then open **Address** to copy its address or scan its QR code.
 Once that address has test coins, use **Send**, review the amount and fee, and
 authorize with the wallet password. The initial fee comes from the node's minimum;
 changes to that minimum are shown on Send and checked again before review.
@@ -131,7 +214,7 @@ operations are outside this release's scope.
 
 Mainnet and testnet use the same address format and wallet keys, but their balances,
 history and pending-payment reservations are separate. Always check the network
-shown on Receive and in the payment confirmation. **Change node** locks the wallet
+shown on Address and in the payment confirmation. **Change node** locks the wallet
 before switching networks. Testnet coins have no mainnet value.
 
 The **test profile** is a separate storage profile, independent of the
@@ -192,7 +275,7 @@ The Send screen provides contacts, Send Max, locally rounded final fees and
 exact amount-plus-fee totals. Available balance subtracts pending/uncertain
 outgoing payments. Balances are checked again before signing; a SQLite
 reservation is committed before the POST, including across app processes.
-The Receive screen's QR contains only the receiving address and is generated
+The Address screen's QR contains only the receiving address and is generated
 locally without a third-party service.
 
 Address Book uses the same compact controls as Send. Contacts appear in separate
